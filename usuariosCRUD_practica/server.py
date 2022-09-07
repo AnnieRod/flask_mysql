@@ -29,5 +29,36 @@ def create_user():
         flash('Error including a new user to database, try again','error')
         return redirect('/users/new')
 
+
+##ruta para editar (actualizar) registro
+@app.route('/users/<int:id>/edit')
+def show_users(id):
+    data = {
+        "id": id
+        }
+    return render_template("edit.html", user = User.show(data))
+    
+@app.route('/users/edit_user', methods=['POST'])
+def edit_info():
+    User.update_info(request.form)
+    return redirect('/users')
+
+## ruta para mostrar informacion
+@app.route('/users/<int:id>/show')
+def show(id):
+    data = {
+        "id": id
+        }
+    return render_template("show.html", user = User.show(data))
+
+## ruta para eliminar registro 
+@app.route("/users/<int:id>/destroy")
+def delete_user(id):
+    data = {
+        "id": id
+    }
+    User.destroy(data)
+    return redirect('/users')
+
 if __name__ == "__main__":
     app.run(debug=True)
