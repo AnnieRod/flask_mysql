@@ -11,12 +11,12 @@
 <body>
     <div class="container w-50 mt-5 p-4 bg-dark text-light">
         <h1 class="text-warning">New Ninja</h1>
-        <form action="/ninjas" method="post">
+        <form action="/ninjas/new" method="post">
             <div class="form-group">
-                <label for="location_dojo">Dojo:</label>
-                <select class="form-control" id="dojo" name="dojo">
-                    {% for dojo in all_dojos %}
-                    <option value= {{ dojo.id }} {{dojo.name}}></option>
+                <label for="dojo">Dojo:</label>
+                <select class="form-control" name="dojo_id" value = {{dojos.id}}>
+                    {% for dojo in dojos %}
+                        <option value= {{dojo.id}}>{{dojo.name}}</option>
                     {% endfor %}
                 </select>
             </div>

@@ -9,8 +9,8 @@
     <title>Dojos and Ninjas</title>
 </head>
 <body>
-    <div class="d-flex justify-content-between">
-        <div class="container mt-5 p-4 bg-dark text-light">
+<div class="d-flex justify-content-center">
+        <div class="mt-5 p-4 bg-dark text-light w-25">
             <h1 class="text-warning">New Dojo</h1>
             <form action="/dojos/new" method="post">
                 <div class="form-group">
@@ -20,14 +20,17 @@
                 <button type="submit" class="btn btn-warning">Create</button>
             </form>
         </div>
-        <div class="container bg-dark text-light mt-5 p-4">
+        <div class=" bg-dark text-light mt-5 p-4 w-25">
             <h1 class="text-warning">All Dojos</h1>
-            {% for dojo in all_dojos %}
+            {% for dojo in dojos %}
                 <p>
-                    <a href="/dojos/{{ dojo.id }}">{{dojo.name}}</a>
+                    <a href="/dojos/{{ dojo.id }}" class= "text-light">{{dojo.name}}</a>
                 </p>
             {% endfor %}
         </div>
     </div>
+    <p class="text-center mt-4">
+        <a href="/ninjas" class="text-dark">Add Ninjas</a> 
+    </p>
 </body>
 </html>
